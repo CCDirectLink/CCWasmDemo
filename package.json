@@ -1,0 +1,14 @@
+{
+    "name": "wasm-demo",
+    "preload": "js/main.js",
+    "module": true,
+    "scripts": {
+        "start": "npm run build",
+        "build": "cross-env GOOS=js GOARCH=wasm npm run build:noenv",
+        "build:noenv": "cd go && go mod download && go generate && go build -o main.wasm"
+    },
+    "devDependencies": {
+        "cross-env": "^5.2.0",
+        "eslint": "^5.16.0"
+    }
+}
